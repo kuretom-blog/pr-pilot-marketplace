@@ -1,8 +1,24 @@
 {
-  "name": "kuretom-blog",
-  "description": "kuretom's plugin marketplace for Claude Code",
-  "version": "1.0.0",
-  "author": { "name": "kuretom" },
-  "homepage": "https://github.com/kuretom-blog/pr-pilot",
-  "plugins_dir": "../plugins"
+  "name": "pr-pilot",
+  "owner": {
+    "name": "kuretom"
+  },
+  "metadata": {
+    "description": "kuretom's plugin marketplace for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "pr-pilot",
+      "source": "./plugins/pr-pilot",
+      "description": "PR workflow toolkit — review, changelog generation, commit message drafting, and test suggestion skills for Claude Code",
+      "version": "1.0.0",
+      "author": {
+        "name": "kuretom"
+      },
+      "repository": "https://github.com/kuretom-blog/pr-pilot",
+      "license": "MIT",
+      "category": "development",
+      "tags": ["pr", "review", "changelog", "commit", "test", "workflow"]
+    }
+  ]
 }
