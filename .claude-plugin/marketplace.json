@@ -1,0 +1,8 @@
+{
+  "name": "kuretom-blog",
+  "description": "kuretom's plugin marketplace for Claude Code",
+  "version": "1.0.0",
+  "author": { "name": "kuretom" },
+  "homepage": "https://github.com/kuretom-blog/pr-pilot",
+  "plugins_dir": "../plugins"
+}
