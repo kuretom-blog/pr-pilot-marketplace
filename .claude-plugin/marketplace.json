@@ -15,7 +15,7 @@
       "author": {
         "name": "kuretom"
       },
-      "repository": "https://github.com/kuretom-blog/pr-pilot",
+      "repository": "https://github.com/kuretom-blog/pr-pilot-marketplace",
       "license": "MIT",
       "category": "development",
       "tags": ["pr", "review", "changelog", "commit", "test", "workflow"]
