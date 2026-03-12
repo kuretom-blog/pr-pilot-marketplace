@@ -1,62 +1,65 @@
-# my-first-plugin
+# pr-pilot
 
-Claude Code plugin that provides automated PR review suggestions.
+A Claude Code plugin that streamlines your entire PR workflow — from code review to changelog generation, commit message drafting, and test gap analysis.
 
-## Features
+## Skills
 
-The `/review` skill analyzes diffs or code snippets from three perspectives:
+### `/review` — Code Review
+Analyzes diffs or code snippets across four dimensions:
+- **Readability** — naming, structure, clarity
+- **Performance** — inefficiencies, N+1 queries, unnecessary allocations
+- **Security** — injection, auth gaps, secret exposure
+- **Maintainability** — duplication, coupling, testability
 
-- **Readability** - naming, structure, clarity improvements
-- **Performance** - inefficiencies, unnecessary allocations, algorithmic concerns
-- **Security** - potential vulnerabilities, unsafe patterns
+Each issue is categorized by severity (Critical / Warning / Info) with concrete fix suggestions.
+
+### `/changelog` — Changelog Generation
+Generates [Keep a Changelog](https://keepachangelog.com/) formatted entries from diffs or commit history. Automatically categorizes changes into Added, Changed, Fixed, Removed, Deprecated, and Security sections.
+
+### `/commit-msg` — Commit Message Drafting
+Drafts [Conventional Commits](https://www.conventionalcommits.org/) compliant messages with auto-detected type, scope, and breaking change identification. Provides up to 3 candidates to choose from.
+
+### `/test-suggest` — Test Gap Analysis
+Identifies missing test cases for changed code, covering:
+- Normal paths and key use cases
+- Boundary values (null, empty, min/max)
+- Error paths and exception handling
+- Regression risks from the current change
+
+Outputs ready-to-use test code matching your project's framework.
 
 ## Installation
 
 ```bash
-claude plugin add /path/to/my-first-plugin
+claude plugin add kuretom-blog/pr-pilot
 ```
 
-Or install from GitHub:
+## Usage Examples
 
 ```bash
-claude plugin add kuretom-blog/my-first-plugin
-```
+# Review staged changes
+/review $(git diff --cached)
 
-## Usage
+# Generate changelog for recent commits
+/changelog $(git log --oneline -10)
 
-```
-/review <diff or code snippet>
-```
+# Draft a commit message from staged diff
+/commit-msg $(git diff --cached)
 
-### Arguments
-
-| Argument   | Required | Description              |
-|------------|----------|--------------------------|
-| `diff`     | Yes      | Diff text or code to review |
-| `language` | No       | Language hint (auto-detected if omitted) |
-
-### Examples
-
-Review a git diff:
-
-```
-/review $(git diff HEAD~1)
-```
-
-Review a code snippet with language specified:
-
-```
-/review language:python def foo(): pass
+# Suggest tests for changed files
+/test-suggest $(git diff main)
 ```
 
 ## Project Structure
 
 ```
 .claude-plugin/
-  plugin.json        # Plugin metadata
+  plugin.json            # Plugin metadata
 skills/
-  review/
-    SKILL.md         # Review skill definition
+  review/SKILL.md        # Code review skill
+  changelog/SKILL.md     # Changelog generation skill
+  commit-msg/SKILL.md    # Commit message drafting skill
+  test-suggest/SKILL.md  # Test suggestion skill
 ```
 
 ## License

@@ -1,7 +1,7 @@
 {
-  "name": "my-first-plugin",
-  "description": "Automated PR review suggestions (readability, perf, security)",
+  "name": "pr-pilot",
+  "description": "PR workflow toolkit — review, changelog generation, commit message drafting, and test suggestion skills for Claude Code",
   "version": "1.0.0",
   "author": { "name": "kuretom" },
-  "homepage": "https://github.com/kuretom-blog/my-first-plugin"
+  "homepage": "https://github.com/kuretom-blog/pr-pilot"
 }
